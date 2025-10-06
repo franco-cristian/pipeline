@@ -1,0 +1,34 @@
+name: CI Principal
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Simular la construcción del proyecto
+        run: |
+          echo "Simulando la construcción del proyecto..."
+          ls -la
+          echo "Construcción finalizada."
+
+  test:
+    runs-on: ubuntu-latest
+    
+    needs: build
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+      
+      - name: Simular la ejecución de tests
+        run: |
+          echo "Simulando la ejecución de tests..."
+          echo "No se encontraron tests, pero el paso fue exitoso."
